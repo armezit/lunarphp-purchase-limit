@@ -7,7 +7,14 @@ purchase limitations in your
 This package uses GetCandy Cart/CartLine modifiers pipeline to check
 various purchase limit rules against the current cart.
 
-[[toc]]
+- [Features](#features)
+- [Setup](#setup)
+    + [Composer Require Package](#composer-require-package)
+    + [Service provider](#service-provider)
+    + [Run Migration](#run-migration)
+    + [Publish resources](#publish-resources)
+- [Usage](#usage)
+- [License](#license)
 
 ## Features
 
@@ -51,7 +58,7 @@ php artisan migrate
 
 This would create the `purchase_limits` table.
 
-### (Optional) Publish resources
+### Publish resources
 
 #### config
 
