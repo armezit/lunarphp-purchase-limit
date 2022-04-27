@@ -1,0 +1,39 @@
+{
+    "name": "armezit/getcandy-purchase-limit",
+    "description": "GetCandy v2 E-Commerce Purchase Limit Addon",
+    "keywords": ["getcandy", "laravel", "ecommerce", "e-commerce", "purchase-limit"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Armin Rezayati",
+            "email": "armin.rezayati@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Armezit\\GetCandy\\PurchaseLimit\\": "src",
+            "Armezit\\GetCandy\\PurchaseLimit\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GetCandy\\Tests\\": "./vendor/getcandy/core/tests",
+            "Armezit\\GetCandy\\PurchaseLimit\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "getcandy": {
+            "name": "Purchase Limit",
+            "slug": "purchase-limit"
+        }
+    },
+    "require": {
+        "php": "^8",
+        "getcandy/core": "^2"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.4.0"
+    }
+}
