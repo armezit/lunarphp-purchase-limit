@@ -1,7 +1,6 @@
 # GetCandy Purchase Limit Addon
 
-The Purchase Limit addon for GetCandy allows you to set up  
-purchase limitations in your 
+The Purchase Limit addon for GetCandy allows you to set up purchase limitations in your 
 [GetCandy](https://github.com/getcandy/getcandy) store.
 
 This package uses GetCandy Cart/CartLine modifiers pipeline to check
