@@ -20,7 +20,7 @@ class CartModifier extends BaseCartModifier
      * @throws ProductVariantQuantityLimitException
      * @throws ProductVariantTotalLimitException
      */
-    public function calculated(Cart $cart, Closure $next)
+    public function calculated(Cart $cart, Closure $next): Cart
     {
         $rules = $this->getRules(config('purchase-limit.cart_rules', []));
 

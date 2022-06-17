@@ -20,7 +20,7 @@ class CartLineModifier extends BaseCartLineModifier
      * @throws ProductVariantQuantityLimitException
      * @throws ProductVariantTotalLimitException
      */
-    public function calculated(CartLine $cartLine, Closure $next)
+    public function calculated(CartLine $cartLine, Closure $next): CartLine
     {
         $rules = $this->getRules(config('purchase-limit.cart_line_rules', []));
 
