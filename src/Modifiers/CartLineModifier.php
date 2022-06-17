@@ -6,6 +6,7 @@ use Armezit\GetCandy\PurchaseLimit\Exceptions\ProductVariantQuantityLimitExcepti
 use Armezit\GetCandy\PurchaseLimit\Exceptions\ProductVariantTotalLimitException;
 use Armezit\GetCandy\PurchaseLimit\Models\PurchaseLimit;
 use Armezit\GetCandy\PurchaseLimit\Rules\CartLineRuleInterface;
+use Closure;
 use GetCandy\Base\CartLineModifier as BaseCartLineModifier;
 use GetCandy\Models\CartLine;
 use Illuminate\Database\Eloquent\Builder;
@@ -19,7 +20,7 @@ class CartLineModifier extends BaseCartLineModifier
      * @throws ProductVariantQuantityLimitException
      * @throws ProductVariantTotalLimitException
      */
-    public function calculated(CartLine $cartLine)
+    public function calculated(CartLine $cartLine, Closure $next)
     {
         $rules = $this->getRules(config('purchase-limit.cart_line_rules', []));
 
@@ -28,6 +29,8 @@ class CartLineModifier extends BaseCartLineModifier
         foreach ($rules as $rule) {
             $rule->execute($purchaseLimits, $cartLine);
         }
+
+        return $next($cartLine);
     }
 
     /**

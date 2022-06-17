@@ -6,6 +6,7 @@ use Armezit\GetCandy\PurchaseLimit\Exceptions\ProductVariantQuantityLimitExcepti
 use Armezit\GetCandy\PurchaseLimit\Exceptions\ProductVariantTotalLimitException;
 use Armezit\GetCandy\PurchaseLimit\Models\PurchaseLimit;
 use Armezit\GetCandy\PurchaseLimit\Rules\CartRuleInterface;
+use Closure;
 use GetCandy\Base\CartModifier as BaseCartModifier;
 use GetCandy\Models\Cart;
 use Illuminate\Database\Eloquent\Builder;
@@ -19,7 +20,7 @@ class CartModifier extends BaseCartModifier
      * @throws ProductVariantQuantityLimitException
      * @throws ProductVariantTotalLimitException
      */
-    public function calculated(Cart $cart)
+    public function calculated(Cart $cart, Closure $next)
     {
         $rules = $this->getRules(config('purchase-limit.cart_rules', []));
 
@@ -28,6 +29,8 @@ class CartModifier extends BaseCartModifier
         foreach ($rules as $rule) {
             $rule->execute($purchaseLimits, $cart);
         }
+
+        return $next($cart);
     }
 
     /**
