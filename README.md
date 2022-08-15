@@ -3,8 +3,10 @@
 The Purchase Limit addon for GetCandy allows you to set up purchase limitations in your 
 [GetCandy](https://github.com/getcandy/getcandy) store.
 
-This package uses GetCandy Cart/CartLine modifiers pipeline to check
+This package injects Rule classes into the Cart/CartLine modifiers pipeline to check 
 various purchase limit rules against the current cart.
+
+You can even write your own rule classes to extend it\`s functionality.
 
 - [Features](#features)
 - [Setup](#setup)
@@ -18,15 +20,15 @@ various purchase limit rules against the current cart.
 ## Features
 
 You can define a criteria for each rule. 
-Currently, these are possible:
+Currently, you are able to define purchase limits for:
 
-* by a specific product
-* by a specific product variant
-* by a customer or customer group
-* by a specific product and customer / customer group
-* by a specific product variant and customer / customer group
+* a specific Product
+* a specific Product Variant
+* a Customer or Customer Group
+* a specific Product for a specific Customer or Customer Group
+* a specific Product Variant for a specific Customer or Customer Group
 
-Each purchase limit rule allows you to restrict quantity, price, or 
+Each purchase limit rule allows you to restrict either quantity, amount (total sum), or 
 both of them.
 
 ## Setup
@@ -62,17 +64,18 @@ This would create the `purchase_limits` table.
 #### config
 
 ```shell
-php artisan vendor:publish --tag=getcandy:virtual-inventory:config
+php artisan vendor:publish --tag=getcandy:purchase-limit:config
 ```
 
 #### language files
 
 ```shell
-php artisan vendor:publish --tag=getcandy:virtual-inventory:lang
+php artisan vendor:publish --tag=getcandy:purchase-limit:lang
 ```
 
 ## Usage
 
+TBD.
 
 ## License
 
