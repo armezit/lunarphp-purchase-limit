@@ -3,6 +3,7 @@
 namespace Armezit\GetCandy\PurchaseLimit\Tests;
 
 use Armezit\GetCandy\PurchaseLimit\PurchaseLimitServiceProvider;
+use Armezit\GetCandy\PurchaseLimit\Tests\Concerns\FixesSqliteDropForeign;
 use Cartalyst\Converter\Laravel\ConverterServiceProvider;
 use GetCandy\GetCandyServiceProvider;
 use GetCandy\Models\Language;
@@ -15,6 +16,15 @@ use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
+
+    use FixesSqliteDropForeign;
+
+    public function __construct(?string $name = null, array $data = [], string $dataName = '')
+    {
+        $this->hotfixSqlite();
+        parent::__construct($name, $data, $dataName);
+    }
+
     protected function setUp(): void
     {
         parent::setUp();
