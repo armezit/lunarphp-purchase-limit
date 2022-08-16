@@ -21,69 +21,76 @@
         <!-- customer group limits -->
         <div class="space-y-4">
             @if(count($customerGroupLimits))
-                <div class="space-y-2">
-                    <div class="grid grid-cols-4 gap-4">
-                        <label class="block text-sm font-medium text-gray-700">{{ __('getcandy-purchase-limit::global.customer_group') }}</label>
-                        <label class="block text-sm font-medium text-gray-700">{{ __('getcandy-purchase-limit::global.max_quantity') }}</label>
-                        <label class="block text-sm font-medium text-gray-700">{{ __('getcandy-purchase-limit::global.max_total') }}</label>
-                        <label class="block text-sm font-medium text-gray-700">{{ __('getcandy-purchase-limit::global.time_period') }}</label>
-                    </div>
+                @foreach($customerGroupLimits as $index => $limit)
+                    <div wire:key="limit_{{ $index }}">
+                        <div class="flex items-center">
+                            <div class="grid grid-cols-4 gap-4 grow">
+                                <input type="hidden" value="{{ $limit->id ?? null }}"
+                                       wire:model='customerGroupLimits.{{ $index }}.id'/>
 
-                    <div class="space-y-2">
-                        @foreach($customerGroupLimits as $index => $limit)
-                            <div wire:key="limit_{{ $index }}">
-                                <div class="flex items-center">
-                                    <div class="grid grid-cols-4 gap-4">
-                                        <input type="hidden" value="{{ $limit->id ?? null }}" wire:model='customerGroupLimits.{{ $index }}.id' />
-
-                                        <x-hub::input.select wire:model='customerGroupLimits.{{ $index }}.customer_group_id'>
-                                            <option value="*">{{ __('getcandy-purchase-limit::global.any') }}</option>
-                                            @foreach($this->customerGroups as $group)
-                                                <option value="{{ $group->id }}">{{ $group->name }}</option>
-                                            @endforeach
-                                        </x-hub::input.select>
-
-                                        <x-hub::input.text
-                                            id="max_quantity_field_{{ $index }}"
-                                            wire:model='customerGroupLimits.{{ $index }}.max_quantity'
-                                            type="number"
-                                            min="1"
-                                            steps="1"
-                                            required
-                                            onkeydown="return event.keyCode !== 190"
-                                            :error="$errors->first('customerGroupLimits.'.$index.'.max_quantity')"
-                                        />
-
-                                        <x-hub::input.text
-                                            id="max_total_field_{{ $index }}"
-                                            wire:model='customerGroupLimits.{{ $index }}.max_total'
-                                            type="number"
-                                            min="1"
-                                            steps="1"
-                                            required
-                                            onkeydown="return event.keyCode !== 190"
-                                            :error="$errors->first('customerGroupLimits.'.$index.'.max_total')"
-                                        />
-
-                                        <x-hub::input.select wire:model='customerGroupLimits.{{ $index }}.period'>
-                                            @foreach($this->periods as $label => $value)
-                                                <option value="{{ $value }}">{{ $label }}</option>
-                                            @endforeach
-                                        </x-hub::input.select>
-                                    </div>
-                                    <div class="ml-4">
-                                        <button class="text-gray-400 hover:text-red-500" wire:click.prevent="removeCustomerGroupLimit('{{ $index }}')">
-                                            <x-hub::icon ref="trash" class="w-5" />
-                                        </button>
-                                    </div>
+                                <div class="flex flex-col space-y-2">
+                                    <label class="block text-sm font-medium text-slate-700">{{ __('getcandy-purchase-limit::global.customer_group') }}</label>
+                                    <x-hub::input.select
+                                        wire:model='customerGroupLimits.{{ $index }}.customer_group_id'>
+                                        <option value="*">{{ __('getcandy-purchase-limit::global.any') }}</option>
+                                        @foreach($this->customerGroups as $group)
+                                            <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                        @endforeach
+                                    </x-hub::input.select>
                                 </div>
-                                @foreach($errors->get('customerGroupLimits.'.$index.'*') as $error)
-                                    <p class="mt-2 text-sm text-red-600">{{ \Illuminate\Support\Arr::first($error) }}</p>
-                                @endforeach
+
+                                <div class="flex flex-col space-y-2">
+                                    <label class="block text-sm font-medium text-slate-700">{{ __('getcandy-purchase-limit::global.max_quantity') }}</label>
+                                    <x-hub::input.text
+                                        id="max_quantity_field_{{ $index }}"
+                                        wire:model='customerGroupLimits.{{ $index }}.max_quantity'
+                                        type="number"
+                                        min="1"
+                                        steps="1"
+                                        required
+                                        onkeydown="return event.keyCode !== 190"
+                                        :error="$errors->first('customerGroupLimits.'.$index.'.max_quantity')"
+                                    />
+                                </div>
+
+                                <div class="flex flex-col space-y-2">
+                                    <label class="block text-sm font-medium text-slate-700">{{ __('getcandy-purchase-limit::global.max_total') }}</label>
+                                    <x-hub::input.text
+                                        id="max_total_field_{{ $index }}"
+                                        wire:model='customerGroupLimits.{{ $index }}.max_total'
+                                        type="number"
+                                        min="1"
+                                        steps="1"
+                                        required
+                                        onkeydown="return event.keyCode !== 190"
+                                        :error="$errors->first('customerGroupLimits.'.$index.'.max_total')"
+                                    />
+                                </div>
+
+                                <div class="flex flex-col space-y-2">
+                                    <label class="block text-sm font-medium text-slate-700">{{ __('getcandy-purchase-limit::global.time_period') }}</label>
+                                    <x-hub::input.select wire:model='customerGroupLimits.{{ $index }}.period'>
+                                        @foreach($this->periods as $label => $value)
+                                            <option value="{{ $value }}">{{ $label }}</option>
+                                        @endforeach
+                                    </x-hub::input.select>
+                                </div>
                             </div>
+                            <div class="mr-4">
+                                <div class="flex flex-col space-y-2">
+                                    <label class="block text-sm">&nbsp;</label>
+                                    <button class="text-gray-400 hover:text-red-500"
+                                            wire:click.prevent="removeCustomerGroupLimit('{{ $index }}')">
+                                        <x-hub::icon ref="trash" class="w-5"/>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        @foreach($errors->get('customerGroupLimits.'.$index.'*') as $error)
+                            <p class="mt-2 text-sm text-red-600">{{ \Illuminate\Support\Arr::first($error) }}</p>
                         @endforeach
                     </div>
-                </div>
+                @endforeach
             @else
             @endif
         </div>
