@@ -10,7 +10,7 @@ use Livewire\Livewire;
 
 class PurchaseLimitHubServiceProvider extends ServiceProvider
 {
-    protected string $root = __DIR__ . '/..';
+    protected string $root = __DIR__.'/..';
 
     /**
      * Boot up the service provider.
@@ -43,5 +43,4 @@ class PurchaseLimitHubServiceProvider extends ServiceProvider
             );
         }
     }
-
 }

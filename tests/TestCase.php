@@ -16,7 +16,6 @@ use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-
     use FixesSqliteDropForeign;
 
     public function __construct(?string $name = null, array $data = [], string $dataName = '')

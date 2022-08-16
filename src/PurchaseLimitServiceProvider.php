@@ -37,5 +37,4 @@ class PurchaseLimitServiceProvider extends PackageServiceProvider
             $this->app->get(CartLineModifiers::class)->add(CartLineModifier::class);
         }
     }
-
 }
