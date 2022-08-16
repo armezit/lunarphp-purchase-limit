@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PurchaseLimitFactory extends Factory
 {
-
     protected $model = PurchaseLimit::class;
 
     /**

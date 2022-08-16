@@ -25,6 +25,7 @@ class CustomerProductLimitTest extends TestCase
     use WithFaker;
 
     private User $user;
+
     private Customer $customer;
 
     protected function setUp(): void
@@ -43,8 +44,7 @@ class CustomerProductLimitTest extends TestCase
 
         $products = Product::factory()->count(3)->create();
 
-        $productVariants = ProductVariant
-            ::factory()
+        $productVariants = ProductVariant::factory()
             ->count(3)
             ->state(new Sequence(
                 ['product_id' => $products[0]->id],
@@ -105,8 +105,7 @@ class CustomerProductLimitTest extends TestCase
 
         $products = Product::factory()->count(3)->create();
 
-        $productVariants = ProductVariant
-            ::factory()
+        $productVariants = ProductVariant::factory()
             ->count(3)
             ->state(new Sequence(
                 ['product_id' => $products[0]->id],
@@ -167,7 +166,7 @@ class CustomerProductLimitTest extends TestCase
         $product = Product::factory()->create();
 
         $productVariants = ProductVariant::factory()->count(2)->create([
-            'product_id' => $product->id
+            'product_id' => $product->id,
         ]);
 
         $cart = Cart::factory()->create([
@@ -206,7 +205,7 @@ class CustomerProductLimitTest extends TestCase
         $product = Product::factory()->create();
 
         $productVariants = ProductVariant::factory()->count(2)->create([
-            'product_id' => $product->id
+            'product_id' => $product->id,
         ]);
 
         $currency = Currency::factory()->create([
@@ -300,5 +299,4 @@ class CustomerProductLimitTest extends TestCase
         (new CustomerProductLimit)->execute($limits, $cart);
         $this->assertTrue(true);
     }
-
 }

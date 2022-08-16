@@ -23,6 +23,7 @@ class CustomerLimitTest extends TestCase
     use RefreshDatabase;
 
     private User $user;
+
     private Customer $customer;
 
     protected function setUp(): void
@@ -166,11 +167,10 @@ class CustomerLimitTest extends TestCase
     {
         $product = Product::factory()->create();
 
-        $productVariants = ProductVariant
-            ::factory()
+        $productVariants = ProductVariant::factory()
             ->count(2)
             ->create([
-                'product_id' => $product->id
+                'product_id' => $product->id,
             ]);
 
         $currency = Currency::factory()->create([
@@ -262,6 +262,4 @@ class CustomerLimitTest extends TestCase
         (new CustomerLimit)->execute($limits, $cart);
         $this->assertTrue(true);
     }
-
-
 }

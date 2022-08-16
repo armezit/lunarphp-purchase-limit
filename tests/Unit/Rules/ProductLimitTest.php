@@ -25,8 +25,7 @@ class ProductLimitTest extends TestCase
     {
         $products = Product::factory()->count(2)->create();
 
-        $productVariants = ProductVariant
-            ::factory()
+        $productVariants = ProductVariant::factory()
             ->count(4)
             ->state(new Sequence(
                 ['product_id' => $products[0]->id],
@@ -74,8 +73,7 @@ class ProductLimitTest extends TestCase
     {
         $products = Product::factory()->count(2)->create();
 
-        $productVariants = ProductVariant
-            ::factory()
+        $productVariants = ProductVariant::factory()
             ->count(4)
             ->state(new Sequence(
                 ['product_id' => $products[0]->id],
@@ -122,11 +120,10 @@ class ProductLimitTest extends TestCase
     {
         $product = Product::factory()->create();
 
-        $productVariants = ProductVariant
-            ::factory()
+        $productVariants = ProductVariant::factory()
             ->count(2)
             ->create([
-                'product_id' => $product->id
+                'product_id' => $product->id,
             ]);
 
         $cart = Cart::factory()->create();
@@ -158,11 +155,10 @@ class ProductLimitTest extends TestCase
     {
         $product = Product::factory()->create();
 
-        $productVariants = ProductVariant
-            ::factory()
+        $productVariants = ProductVariant::factory()
             ->count(2)
             ->create([
-                'product_id' => $product->id
+                'product_id' => $product->id,
             ]);
 
         $currency = Currency::factory()->create([
@@ -213,5 +209,4 @@ class ProductLimitTest extends TestCase
         $this->expectException(ProductTotalLimitException::class);
         (new ProductLimit)->execute($limits, $cart);
     }
-
 }

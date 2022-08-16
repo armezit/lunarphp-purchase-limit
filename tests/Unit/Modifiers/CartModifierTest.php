@@ -45,7 +45,7 @@ class CartModifierTest extends TestCase
 
         $product = Product::factory()->create();
         $productVariant = ProductVariant::factory()->create([
-            'product_id' => $product->id
+            'product_id' => $product->id,
         ]);
 
         $currency = Currency::factory()->create([
@@ -95,5 +95,4 @@ class CartModifierTest extends TestCase
 
         $this->assertCount(4, $limits);
     }
-
 }

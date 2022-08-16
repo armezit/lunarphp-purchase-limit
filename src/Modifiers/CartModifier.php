@@ -14,15 +14,15 @@ use Illuminate\Support\Collection;
 
 class CartModifier extends BaseCartModifier
 {
-
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
      * @throws ProductVariantQuantityLimitException
      * @throws ProductVariantTotalLimitException
      */
     public function calculated(Cart $cart, Closure $next): Cart
     {
-        $rules = $this->getRules(config('purchase-limit.cart_rules', []));
+        $rules = $this->getRules(config('getcandy-purchase-limit.cart_rules', []));
 
         $purchaseLimits = $this->getPurchaseLimits($rules, $cart);
 
@@ -34,24 +34,24 @@ class CartModifier extends BaseCartModifier
     }
 
     /**
-     * @param array $classes
+     * @param  array  $classes
      * @return CartRuleInterface[]
      */
     public function getRules(array $classes): array
     {
-        return array_map(fn($class) => app($class), $classes);
+        return array_map(fn ($class) => app($class), $classes);
     }
 
     /**
      * get purchase limit collection of all rules in a single query
-     * @param CartRuleInterface[] $rules
-     * @param Cart $cart
+     *
+     * @param  CartRuleInterface[]  $rules
+     * @param  Cart  $cart
      * @return Collection
      */
     public function getPurchaseLimits(array $rules, Cart $cart): Collection
     {
-        $query = PurchaseLimit
-            ::withoutTrashed()
+        $query = PurchaseLimit::withoutTrashed()
             ->where(function (Builder $query) use ($cart, $rules) {
                 foreach ($rules as $rule) {
                     $query->orWhere(function (Builder $q) use ($cart, $rule) {
@@ -59,7 +59,7 @@ class CartModifier extends BaseCartModifier
                     });
                 }
             });
+
         return $query->get();
     }
-
 }

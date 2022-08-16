@@ -23,6 +23,7 @@ class CustomerProductVariantLimitTest extends TestCase
     use RefreshDatabase;
 
     private User $user;
+
     private Customer $customer;
 
     protected function setUp(): void
@@ -263,5 +264,4 @@ class CustomerProductVariantLimitTest extends TestCase
         (new CustomerProductVariantLimit)->execute($limits, $cart->lines()->first());
         $this->assertTrue(true);
     }
-
 }

@@ -133,5 +133,4 @@ class ProductVariantLimitTest extends TestCase
         $this->expectException(ProductVariantTotalLimitException::class);
         (new ProductVariantLimit)->execute($limits, $cartLine);
     }
-
 }

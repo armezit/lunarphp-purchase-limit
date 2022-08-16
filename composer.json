@@ -1,7 +1,14 @@
 {
     "name": "armezit/getcandy-purchase-limit",
     "description": "GetCandy v2 E-Commerce Purchase Limit Addon",
-    "keywords": ["getcandy", "laravel", "ecommerce", "e-commerce", "purchase-limit"],
+    "keywords": [
+        "getcandy",
+        "laravel",
+        "ecommerce",
+        "e-commerce",
+        "purchase-limit"
+    ],
+    "homepage": "https://github.com/armezit/getcandy-purchase-limit",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -10,7 +17,26 @@
             "email": "armin.rezayati@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0",
+        "getcandy/admin": "^2",
+        "getcandy/core": "^2",
+        "illuminate/contracts": "^9.0",
+        "livewire/livewire": "^2.0",
+        "spatie/laravel-package-tools": "^1.9.2"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^6.0",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^7.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.5"
+    },
     "autoload": {
         "psr-4": {
             "Armezit\\GetCandy\\PurchaseLimit\\": "src",
@@ -23,17 +49,30 @@
             "Armezit\\GetCandy\\PurchaseLimit\\Tests\\": "tests"
         }
     },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
+        "laravel": {
+            "providers": [
+                "Armezit\\GetCandy\\PurchaseLimit\\PurchaseLimitServiceProvider",
+                "Armezit\\GetCandy\\PurchaseLimit\\PurchaseLimitHubServiceProvider"
+            ],
+            "aliases": {
+                "PurchaseLimit": "Armezit\\GetCandy\\PurchaseLimit\\Facades\\PurchaseLimit"
+            }
+        },
         "getcandy": {
             "name": "Purchase Limit",
             "slug": "purchase-limit"
         }
     },
-    "require": {
-        "php": "^8",
-        "getcandy/core": "^2"
-    },
-    "require-dev": {
-        "orchestra/testbench": "^7.4.0"
-    }
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

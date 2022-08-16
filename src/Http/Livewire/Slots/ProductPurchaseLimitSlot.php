@@ -47,12 +47,12 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 
     public function getSlotTitle()
     {
-        return __('purchase-limit::slots.product.title');
+        return __('getcandy-purchase-limit::slots.product.title');
     }
 
     public function render()
     {
-        return view('purchase-limit::livewire.slots.product-purchase-limit');
+        return view('getcandy-purchase-limit::livewire.slots.product-purchase-limit');
     }
 
     protected function rules()
@@ -60,30 +60,30 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
         return [
             'customerGroupLimits' => [
                 'nullable',
-                'array'
+                'array',
             ],
             'customerGroupLimits.*.id' => [
-                'nullable'
+                'nullable',
             ],
             'customerGroupLimits.*.customer_group_id' => [
-                'nullable'
+                'nullable',
             ],
             'customerGroupLimits.*.max_quantity' => [
                 'nullable',
                 'required_without:customerGroupLimits.*.max_total',
                 'numeric',
-                'min:1'
+                'min:1',
             ],
             'customerGroupLimits.*.max_total' => [
                 'nullable',
                 'required_without:customerGroupLimits.*.max_quantity',
                 'numeric',
-                'min:1'
+                'min:1',
             ],
             'customerGroupLimits.*.period' => [
                 'nullable',
                 'numeric',
-                'min:1'
+                'min:1',
             ],
         ];
     }
@@ -105,8 +105,7 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 
     private function mapCustomerGroupLimits()
     {
-        return PurchaseLimit
-            ::where([
+        return PurchaseLimit::where([
                 'product_id' => $this->slotModel instanceof Product ? $this->slotModel->id : 0,
                 'product_variant_id' => $this->slotModel instanceof ProductVariant ? $this->slotModel->id : 0,
                 'customer_id' => 0,
@@ -131,10 +130,10 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
     public function getPeriodsProperty()
     {
         return [
-            __('purchase-limit::global.per_purchase') => '',
-            __('purchase-limit::global.daily') => 1,
-            __('purchase-limit::global.weekly') => 7,
-            __('purchase-limit::global.monthly') => 30,
+            __('getcandy-purchase-limit::global.per_purchase') => '',
+            __('getcandy-purchase-limit::global.daily') => 1,
+            __('getcandy-purchase-limit::global.weekly') => 7,
+            __('getcandy-purchase-limit::global.monthly') => 30,
         ];
     }
 
@@ -148,7 +147,8 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 
     /**
      * Method to remove a customer group limit from the stack.
-     * @param int $index
+     *
+     * @param  int  $index
      */
     public function removeCustomerGroupLimit(int $index)
     {
@@ -188,8 +188,9 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 
     /**
      * save customer purchase limits
-     * @param Model $model
-     * @param array $data
+     *
+     * @param  Model  $model
+     * @param  array  $data
      */
     public function saveCustomerGroupPurchaseLimits(Model $model, array $data)
     {
@@ -204,7 +205,6 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
         ];
 
         DB::transaction(function () use ($baseData, $data) {
-
             $upsert = [];
             $limitsToKeep = [];
             foreach ($data as $limit) {
@@ -227,5 +227,4 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
                          ->forceDelete();
         });
     }
-
 }

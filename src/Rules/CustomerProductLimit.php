@@ -14,7 +14,6 @@ use Illuminate\Support\Collection;
  */
 class CustomerProductLimit implements CartRuleInterface
 {
-
     private function getProductIds(Cart $cart): Collection
     {
         return $cart->lines()
@@ -44,11 +43,11 @@ class CustomerProductLimit implements CartRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function query(Builder $builder, Cart $cart): Builder
     {
-        if (!$cart->user) {
+        if (! $cart->user) {
             return $builder;
         }
 
@@ -62,11 +61,11 @@ class CustomerProductLimit implements CartRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function filter(Collection $purchaseLimits, Cart $cart): Collection
     {
-        if (!$cart->user) {
+        if (! $cart->user) {
             return collect();
         }
 
@@ -82,7 +81,7 @@ class CustomerProductLimit implements CartRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function execute(Collection $purchaseLimits, Cart $cart): void
     {

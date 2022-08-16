@@ -10,29 +10,31 @@ use Illuminate\Support\Collection;
 
 interface CartLineRuleInterface
 {
-
     /**
      * get builder for retrieving purchase limits of this rule
-     * @param Builder $query
-     * @param CartLine $cartLine
+     *
+     * @param  Builder  $query
+     * @param  CartLine  $cartLine
      */
     public function query(Builder $query, CartLine $cartLine): Builder;
 
     /**
      * filter purchase limits collection which this rule is responsible for
-     * @param Collection $purchaseLimits
-     * @param CartLine $cartLine
+     *
+     * @param  Collection  $purchaseLimits
+     * @param  CartLine  $cartLine
      */
     public function filter(Collection $purchaseLimits, CartLine $cartLine): Collection;
 
     /**
      * check rule against a collection of purchase limits
-     * @param Collection $purchaseLimits
-     * @param CartLine $cartLine
+     *
+     * @param  Collection  $purchaseLimits
+     * @param  CartLine  $cartLine
      * @return void
+     *
      * @throws ProductVariantQuantityLimitException
      * @throws ProductVariantTotalLimitException
      */
     public function execute(Collection $purchaseLimits, CartLine $cartLine): void;
-
 }

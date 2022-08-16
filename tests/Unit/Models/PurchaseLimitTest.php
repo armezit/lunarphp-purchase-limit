@@ -46,7 +46,7 @@ class PurchaseLimitTest extends TestCase
     {
         $product = Product::factory()->create();
         $purchaseLimit = PurchaseLimit::factory()->create([
-            'product_id' => $product->id
+            'product_id' => $product->id,
         ]);
 
         $this->assertInstanceOf(Product::class, $purchaseLimit->product);
@@ -56,7 +56,7 @@ class PurchaseLimitTest extends TestCase
     {
         $productVariant = ProductVariant::factory()->create();
         $purchaseLimit = PurchaseLimit::factory()->create([
-            'product_variant_id' => $productVariant->id
+            'product_variant_id' => $productVariant->id,
         ]);
 
         $this->assertInstanceOf(ProductVariant::class, $purchaseLimit->productVariant);
@@ -66,7 +66,7 @@ class PurchaseLimitTest extends TestCase
     {
         $customer = Customer::factory()->create();
         $purchaseLimit = PurchaseLimit::factory()->create([
-            'customer_id' => $customer->id
+            'customer_id' => $customer->id,
         ]);
 
         $this->assertInstanceOf(Customer::class, $purchaseLimit->customer);
@@ -76,7 +76,7 @@ class PurchaseLimitTest extends TestCase
     {
         $customerGroup = CustomerGroup::factory()->create();
         $purchaseLimit = PurchaseLimit::factory()->create([
-            'customer_group_id' => $customerGroup->id
+            'customer_group_id' => $customerGroup->id,
         ]);
 
         $this->assertInstanceOf(CustomerGroup::class, $purchaseLimit->customerGroup);

@@ -6,5 +6,4 @@ use GetCandy\Exceptions\Carts\CartException;
 
 class PurchaseLimitException extends CartException
 {
-
 }

@@ -97,5 +97,4 @@ class CartLineModifierTest extends TestCase
 
         $this->assertCount(3, $limits);
     }
-
 }

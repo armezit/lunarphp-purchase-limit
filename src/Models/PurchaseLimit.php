@@ -34,6 +34,16 @@ class PurchaseLimit extends Model
     ];
 
     /**
+     * Get the table associated with the model.
+     *
+     * @return string
+     */
+    public function getTable()
+    {
+        return config('getcandy-purchase-limit.database.purchase_limits_table', 'purchase_limits');
+    }
+
+    /**
      * Return a new factory instance for the model.
      *
      * @return PurchaseLimitFactory
@@ -74,5 +84,4 @@ class PurchaseLimit extends Model
     {
         return $this->belongsTo(Customer::class, 'customer_id');
     }
-
 }

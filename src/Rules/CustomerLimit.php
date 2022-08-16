@@ -13,7 +13,6 @@ use Illuminate\Support\Collection;
  */
 class CustomerLimit implements CartRuleInterface
 {
-
     private function getCustomerIds(Cart $cart): Collection
     {
         return $cart->user->customers->pluck('id');
@@ -32,11 +31,11 @@ class CustomerLimit implements CartRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function query(Builder $builder, Cart $cart): Builder
     {
-        if (!$cart->user) {
+        if (! $cart->user) {
             return $builder;
         }
 
@@ -52,11 +51,11 @@ class CustomerLimit implements CartRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function filter(Collection $purchaseLimits, Cart $cart): Collection
     {
-        if (!$cart->user) {
+        if (! $cart->user) {
             return collect();
         }
 
@@ -72,7 +71,8 @@ class CustomerLimit implements CartRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
      * @throws CustomerQuantityLimitException
      * @throws CustomerTotalLimitException
      */

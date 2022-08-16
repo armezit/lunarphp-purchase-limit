@@ -2,51 +2,27 @@
 
 namespace Armezit\GetCandy\PurchaseLimit;
 
-use Illuminate\Support\ServiceProvider;
+use Armezit\GetCandy\PurchaseLimit\Commands\ListPurchaseLimits;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class PurchaseLimitServiceProvider extends ServiceProvider
+class PurchaseLimitServiceProvider extends PackageServiceProvider
 {
+    public static string $name = 'getcandy-purchase-limit';
 
-    protected string $root = __DIR__ . '/..';
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
+    public function configurePackage(Package $package): void
     {
-        $this->mergeConfigFrom("{$this->root}/config/purchase-limit.php", "purchase-limit");
+        $package
+            ->name(self::$name)
+            ->hasConfigFile()
+            ->hasViews()
+            ->hasTranslations()
+            ->hasMigrations([
+                'create_purchase_limits_table',
+            ])
+            ->runsMigrations()
+            ->hasCommands([
+                ListPurchaseLimits::class,
+            ]);
     }
-
-    /**
-     * Boot up the service provider.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->loadMigrationsFrom("{$this->root}/database/migrations");
-        $this->loadViewsFrom("{$this->root}/resources/views", 'purchase-limit');
-        $this->loadTranslationsFrom("{$this->root}/resources/lang", 'purchase-limit');
-
-        $this->registerPublishables();
-    }
-
-    /**
-     * Register our publishables.
-     *
-     * @return void
-     */
-    private function registerPublishables()
-    {
-        $this->publishes([
-            "{$this->root}/config/purchase-limit.php" => config_path("purchase-limit.php"),
-        ], ['getcandy:purchase-limit:config']);
-
-        $this->publishes([
-            "{$this->root}/resources/lang" => $this->app->langPath('vendor/getcandy-purchase-limit'),
-        ], ['getcandy:purchase-limit:lang']);
-    }
-
 }

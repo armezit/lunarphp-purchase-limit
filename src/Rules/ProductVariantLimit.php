@@ -13,9 +13,8 @@ use Illuminate\Support\Collection;
  */
 class ProductVariantLimit implements CartLineRuleInterface
 {
-
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function query(Builder $builder, CartLine $cartLine): Builder
     {
@@ -29,7 +28,7 @@ class ProductVariantLimit implements CartLineRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function filter(Collection $purchaseLimits, CartLine $cartLine): Collection
     {
@@ -43,7 +42,7 @@ class ProductVariantLimit implements CartLineRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function execute(Collection $purchaseLimits, CartLine $cartLine): void
     {

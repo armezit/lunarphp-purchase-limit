@@ -2,19 +2,19 @@
     <div class="flex-col px-4 py-5 space-y-4 bg-white rounded-md sm:p-6">
         <header class="flex items-center justify-between">
             <h3 class="text-lg font-medium leading-6 text-gray-900">
-                {{ __('purchase-limit::slots.product.heading') }}
+                {{ __('getcandy-purchase-limit::slots.product.heading') }}
             </h3>
         </header>
 
         <div class="flex items-center justify-between pt-4 border-t">
             <div>
-                <strong>{{ __('purchase-limit::slots.product.customer_groups.title') }}</strong>
+                <strong>{{ __('getcandy-purchase-limit::slots.product.customer_groups.title') }}</strong>
                 <p class="text-xs text-gray-600">
-                    {{ __('purchase-limit::slots.product.customer_groups.strapline') }}
+                    {{ __('getcandy-purchase-limit::slots.product.customer_groups.strapline') }}
                 </p>
             </div>
             <x-hub::button :disabled="count($customerGroupLimits) >= count($this->customerGroups) + 1" wire:click.prevent="addCustomerGroupLimit" theme="gray" size="sm" type="button">
-                {{ __('purchase-limit::slots.product.customer_groups.add_group_btn') }}
+                {{ __('getcandy-purchase-limit::slots.product.customer_groups.add_group_btn') }}
             </x-hub::button>
         </div>
 
@@ -23,10 +23,10 @@
             @if(count($customerGroupLimits))
                 <div class="space-y-2">
                     <div class="grid grid-cols-4 gap-4">
-                        <label class="block text-sm font-medium text-gray-700">{{ __('purchase-limit::global.customer_group') }}</label>
-                        <label class="block text-sm font-medium text-gray-700">{{ __('purchase-limit::global.max_quantity') }}</label>
-                        <label class="block text-sm font-medium text-gray-700">{{ __('purchase-limit::global.max_total') }}</label>
-                        <label class="block text-sm font-medium text-gray-700">{{ __('purchase-limit::global.time_period') }}</label>
+                        <label class="block text-sm font-medium text-gray-700">{{ __('getcandy-purchase-limit::global.customer_group') }}</label>
+                        <label class="block text-sm font-medium text-gray-700">{{ __('getcandy-purchase-limit::global.max_quantity') }}</label>
+                        <label class="block text-sm font-medium text-gray-700">{{ __('getcandy-purchase-limit::global.max_total') }}</label>
+                        <label class="block text-sm font-medium text-gray-700">{{ __('getcandy-purchase-limit::global.time_period') }}</label>
                     </div>
 
                     <div class="space-y-2">
@@ -37,7 +37,7 @@
                                         <input type="hidden" value="{{ $limit->id ?? null }}" wire:model='customerGroupLimits.{{ $index }}.id' />
 
                                         <x-hub::input.select wire:model='customerGroupLimits.{{ $index }}.customer_group_id'>
-                                            <option value="*">{{ __('purchase-limit::global.any') }}</option>
+                                            <option value="*">{{ __('getcandy-purchase-limit::global.any') }}</option>
                                             @foreach($this->customerGroups as $group)
                                                 <option value="{{ $group->id }}">{{ $group->name }}</option>
                                             @endforeach

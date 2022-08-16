@@ -9,8 +9,7 @@ use Livewire\Livewire;
 
 class PurchaseLimitHubServiceProvider extends ServiceProvider
 {
-
-    protected string $root = __DIR__ . '/..';
+    protected string $root = __DIR__.'/..';
 
     /**
      * Boot up the service provider.
@@ -29,8 +28,7 @@ class PurchaseLimitHubServiceProvider extends ServiceProvider
      */
     protected function registerLivewireComponents()
     {
-        Livewire::component('hub.customer.slots.customer-purchase-limit-slot', CustomerPurchaseLimitSlot::class);
+//        Livewire::component('hub.customer.slots.customer-purchase-limit-slot', CustomerPurchaseLimitSlot::class);
         Livewire::component('hub.product.slots.product-purchase-limit-slot', ProductPurchaseLimitSlot::class);
     }
-
 }

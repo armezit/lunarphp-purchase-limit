@@ -13,7 +13,6 @@ use Illuminate\Support\Collection;
  */
 class CustomerProductVariantLimit implements CartLineRuleInterface
 {
-
     private function getCustomerIds(CartLine $cartLine): Collection
     {
         return $cartLine->cart->user->customers->pluck('id');
@@ -33,11 +32,11 @@ class CustomerProductVariantLimit implements CartLineRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function query(Builder $builder, CartLine $cartLine): Builder
     {
-        if (!$cartLine->cart->user) {
+        if (! $cartLine->cart->user) {
             return $builder;
         }
 
@@ -53,11 +52,11 @@ class CustomerProductVariantLimit implements CartLineRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function filter(Collection $purchaseLimits, CartLine $cartLine): Collection
     {
-        if (!$cartLine->cart->user) {
+        if (! $cartLine->cart->user) {
             return collect();
         }
 
@@ -73,7 +72,7 @@ class CustomerProductVariantLimit implements CartLineRuleInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function execute(Collection $purchaseLimits, CartLine $cartLine): void
     {
