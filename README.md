@@ -32,9 +32,10 @@ Install the GetCandy Purchase Limit via composer:
 composer require armezit/getcandy-purchase-limit
 ``` 
 
-Run database migrations:
+Publish the migrations and run them with:
 
 ```bash
+php artisan vendor:publish --tag="getcandy-purchase-limit-migrations"
 php artisan migrate
 ```
 
@@ -157,19 +158,11 @@ composer require armezit/getcandy-purchase-limit
 
 ### Migrations
 
-Run the migrations with:
-
-```bash
-php artisan migrate
-```
-
-By default, there\`s no need to publish migrations into your application\`s `migrations` directory,
-and they would be executed when you migrate.
-
-But if you prefer to publish them, can can do that:
+Publish the migrations and run them with:
 
 ```bash
 php artisan vendor:publish --tag="getcandy-purchase-limit-migrations"
+php artisan migrate
 ```
 
 ::: tip Table names are configurable. See the config file. :::
