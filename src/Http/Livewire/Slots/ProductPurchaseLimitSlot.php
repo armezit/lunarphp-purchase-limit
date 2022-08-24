@@ -30,7 +30,7 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 
     public function getSlotHandle()
     {
-        return 'product-purchase-limit-slot';
+        return 'product-purchase-limit';
     }
 
     public function getSlotInitialValue()
