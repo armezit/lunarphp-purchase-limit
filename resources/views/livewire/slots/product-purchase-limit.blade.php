@@ -76,7 +76,7 @@
                                     </x-hub::input.select>
                                 </div>
                             </div>
-                            <div class="mr-4">
+                            <div class="mr-4 rtl:mr-0 rtl:ml-4">
                                 <div class="flex flex-col space-y-2">
                                     <label class="block text-sm">&nbsp;</label>
                                     <button class="text-gray-400 hover:text-red-500"
@@ -96,7 +96,4 @@
         </div>
 
     </div>
-    <style>
-        @import "{{ asset('vendor/getcandy/purchase-limit/styles.css') }}";
-    </style>
 </div>
