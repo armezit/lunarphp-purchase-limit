@@ -32,10 +32,9 @@ Install the GetCandy Purchase Limit via composer:
 composer require armezit/getcandy-purchase-limit
 ``` 
 
-Publish the migrations and run them with:
+Run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="getcandy-purchase-limit-migrations"
 php artisan migrate
 ```
 
@@ -150,6 +149,10 @@ or
 
 ## Installation
 
+[Quick Setup](#quick-setup) covers the essential installation steps.
+This section, however, is a detailed installation procedure, 
+containing all optional parts. 
+
 You can install the package via composer:
 
 ```bash
@@ -158,10 +161,15 @@ composer require armezit/getcandy-purchase-limit
 
 ### Migrations
 
-Publish the migrations and run them with:
+Optionally, publish the migrations:
 
 ```bash
 php artisan vendor:publish --tag="getcandy-purchase-limit-migrations"
+```
+
+Run the migrations with:
+
+```bash
 php artisan migrate
 ```
 
