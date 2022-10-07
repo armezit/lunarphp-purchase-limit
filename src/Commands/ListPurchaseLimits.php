@@ -1,12 +1,12 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Commands;
+namespace Armezit\Lunar\PurchaseLimit\Commands;
 
 use Illuminate\Console\Command;
 
 class ListPurchaseLimits extends Command
 {
-    public $signature = 'getcandy:purchase-limit:list';
+    public $signature = 'lunar:purchase-limit:list';
 
     public $description = 'List all defined purchase limits';
 

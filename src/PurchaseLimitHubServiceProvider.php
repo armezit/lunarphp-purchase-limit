@@ -1,10 +1,10 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit;
+namespace Armezit\Lunar\PurchaseLimit;
 
-use Armezit\GetCandy\PurchaseLimit\Http\Livewire\Slots\CustomerPurchaseLimitSlot;
-use Armezit\GetCandy\PurchaseLimit\Http\Livewire\Slots\ProductPurchaseLimitSlot;
-use GetCandy\Hub\Facades\Slot;
+use Armezit\Lunar\PurchaseLimit\Http\Livewire\Slots\CustomerPurchaseLimitSlot;
+use Armezit\Lunar\PurchaseLimit\Http\Livewire\Slots\ProductPurchaseLimitSlot;
+use Lunar\Hub\Facades\Slot;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -36,9 +36,9 @@ class PurchaseLimitHubServiceProvider extends ServiceProvider
 
     protected function registerHubSlots()
     {
-        if (config('getcandy-purchase-limit.register_hub_slots', true)) {
+        if (config('lunarphp-purchase-limit.register_hub_slots', true)) {
             Slot::register(
-                config('getcandy-purchase-limit.product_purchase_limit_slot', 'product.all'),
+                config('lunarphp-purchase-limit.product_purchase_limit_slot', 'product.all'),
                 ProductPurchaseLimitSlot::class
             );
         }

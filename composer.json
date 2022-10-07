@@ -1,14 +1,14 @@
 {
-    "name": "armezit/getcandy-purchase-limit",
-    "description": "GetCandy v2 E-Commerce Purchase Limit Addon",
+    "name": "armezit/lunarphp-purchase-limit",
+    "description": "Lunar E-Commerce Purchase Limit Addon",
     "keywords": [
-        "getcandy",
+        "lunar",
         "laravel",
         "ecommerce",
         "e-commerce",
         "purchase-limit"
     ],
-    "homepage": "https://github.com/armezit/getcandy-purchase-limit",
+    "homepage": "https://github.com/armezit/lunarphp-purchase-limit",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -19,8 +19,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "getcandy/admin": "^2",
-        "getcandy/core": "^2",
+        "lunarphp/stripe": "^0.1",
         "illuminate/contracts": "^9.0",
         "livewire/livewire": "^2.0",
         "spatie/laravel-package-tools": "^1.9.2"
@@ -39,14 +38,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Armezit\\GetCandy\\PurchaseLimit\\": "src",
-            "Armezit\\GetCandy\\PurchaseLimit\\Database\\Factories\\": "database/factories"
+            "Armezit\\Lunar\\PurchaseLimit\\": "src",
+            "Armezit\\Lunar\\PurchaseLimit\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "GetCandy\\Tests\\": "./vendor/getcandy/core/tests",
-            "Armezit\\GetCandy\\PurchaseLimit\\Tests\\": "tests"
+            "Lunar\\Tests\\": "./vendor/lunar/core/tests",
+            "Armezit\\Lunar\\PurchaseLimit\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -61,14 +60,14 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Armezit\\GetCandy\\PurchaseLimit\\PurchaseLimitServiceProvider",
-                "Armezit\\GetCandy\\PurchaseLimit\\PurchaseLimitHubServiceProvider"
+                "Armezit\\Lunar\\PurchaseLimit\\PurchaseLimitServiceProvider",
+                "Armezit\\Lunar\\PurchaseLimit\\PurchaseLimitHubServiceProvider"
             ],
             "aliases": {
-                "PurchaseLimit": "Armezit\\GetCandy\\PurchaseLimit\\Facades\\PurchaseLimit"
+                "PurchaseLimit": "Armezit\\Lunar\\PurchaseLimit\\Facades\\PurchaseLimit"
             }
         },
-        "getcandy": {
+        "lunar": {
             "name": "Purchase Limit",
             "slug": "purchase-limit"
         }

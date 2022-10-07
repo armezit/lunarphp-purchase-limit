@@ -1,14 +1,14 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Modifiers;
+namespace Armezit\Lunar\PurchaseLimit\Modifiers;
 
-use Armezit\GetCandy\PurchaseLimit\Exceptions\ProductVariantQuantityLimitException;
-use Armezit\GetCandy\PurchaseLimit\Exceptions\ProductVariantTotalLimitException;
-use Armezit\GetCandy\PurchaseLimit\Models\PurchaseLimit;
-use Armezit\GetCandy\PurchaseLimit\Rules\CartRuleInterface;
+use Armezit\Lunar\PurchaseLimit\Exceptions\ProductVariantQuantityLimitException;
+use Armezit\Lunar\PurchaseLimit\Exceptions\ProductVariantTotalLimitException;
+use Armezit\Lunar\PurchaseLimit\Models\PurchaseLimit;
+use Armezit\Lunar\PurchaseLimit\Rules\CartRuleInterface;
 use Closure;
-use GetCandy\Base\CartModifier as BaseCartModifier;
-use GetCandy\Models\Cart;
+use Lunar\Base\CartModifier as BaseCartModifier;
+use Lunar\Models\Cart;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
@@ -22,7 +22,7 @@ class CartModifier extends BaseCartModifier
      */
     public function calculated(Cart $cart, Closure $next): Cart
     {
-        $rules = $this->getRules(config('getcandy-purchase-limit.cart_rules', []));
+        $rules = $this->getRules(config('lunarphp-purchase-limit.cart_rules', []));
 
         $purchaseLimits = $this->getPurchaseLimits($rules, $cart);
 

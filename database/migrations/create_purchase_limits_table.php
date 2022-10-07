@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        $tableName = config('getcandy-purchase-limit.database.purchase_limits_table', 'purchase_limits');
+        $tableName = config('lunarphp-purchase-limit.database.purchase_limits_table', 'purchase_limits');
         Schema::create($tableName, function (Blueprint $table) {
             $table->id();
             $table->bigInteger('product_id')->default(0);
@@ -39,7 +39,7 @@ return new class extends Migration
      */
     public function down()
     {
-        $tableName = config('getcandy-purchase-limit.database.purchase_limits_table', 'purchase_limits');
+        $tableName = config('lunarphp-purchase-limit.database.purchase_limits_table', 'purchase_limits');
         Schema::dropIfExists($tableName);
     }
 };

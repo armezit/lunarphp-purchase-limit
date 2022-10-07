@@ -1,12 +1,12 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Models;
+namespace Armezit\Lunar\PurchaseLimit\Models;
 
-use Armezit\GetCandy\PurchaseLimit\Database\Factories\PurchaseLimitFactory;
-use GetCandy\Models\Customer;
-use GetCandy\Models\CustomerGroup;
-use GetCandy\Models\Product;
-use GetCandy\Models\ProductVariant;
+use Armezit\Lunar\PurchaseLimit\Database\Factories\PurchaseLimitFactory;
+use Lunar\Models\Customer;
+use Lunar\Models\CustomerGroup;
+use Lunar\Models\Product;
+use Lunar\Models\ProductVariant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -40,7 +40,7 @@ class PurchaseLimit extends Model
      */
     public function getTable()
     {
-        return config('getcandy-purchase-limit.database.purchase_limits_table', 'purchase_limits');
+        return config('lunarphp-purchase-limit.database.purchase_limits_table', 'purchase_limits');
     }
 
     /**

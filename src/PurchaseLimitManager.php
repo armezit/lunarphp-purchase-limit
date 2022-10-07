@@ -1,6 +1,6 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit;
+namespace Armezit\Lunar\PurchaseLimit;
 
 class PurchaseLimitManager
 {

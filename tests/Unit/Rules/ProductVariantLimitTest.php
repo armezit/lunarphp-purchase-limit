@@ -1,19 +1,19 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Tests\Unit\Rules;
+namespace Armezit\Lunar\PurchaseLimit\Tests\Unit\Rules;
 
-use Armezit\GetCandy\PurchaseLimit\Exceptions\ProductVariantQuantityLimitException;
-use Armezit\GetCandy\PurchaseLimit\Exceptions\ProductVariantTotalLimitException;
-use Armezit\GetCandy\PurchaseLimit\Models\PurchaseLimit;
-use Armezit\GetCandy\PurchaseLimit\Rules\ProductVariantLimit;
-use Armezit\GetCandy\PurchaseLimit\Tests\TestCase;
-use GetCandy\Actions\Carts\CalculateLine;
-use GetCandy\Models\Cart;
-use GetCandy\Models\CartLine;
-use GetCandy\Models\Currency;
-use GetCandy\Models\CustomerGroup;
-use GetCandy\Models\Price;
-use GetCandy\Models\ProductVariant;
+use Armezit\Lunar\PurchaseLimit\Exceptions\ProductVariantQuantityLimitException;
+use Armezit\Lunar\PurchaseLimit\Exceptions\ProductVariantTotalLimitException;
+use Armezit\Lunar\PurchaseLimit\Models\PurchaseLimit;
+use Armezit\Lunar\PurchaseLimit\Rules\ProductVariantLimit;
+use Armezit\Lunar\PurchaseLimit\Tests\TestCase;
+use Lunar\Actions\Carts\CalculateLine;
+use Lunar\Models\Cart;
+use Lunar\Models\CartLine;
+use Lunar\Models\Currency;
+use Lunar\Models\CustomerGroup;
+use Lunar\Models\Price;
+use Lunar\Models\ProductVariant;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

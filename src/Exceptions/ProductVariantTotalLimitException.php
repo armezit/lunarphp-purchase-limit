@@ -1,6 +1,6 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Exceptions;
+namespace Armezit\Lunar\PurchaseLimit\Exceptions;
 
 class ProductVariantTotalLimitException extends PurchaseLimitException
 {

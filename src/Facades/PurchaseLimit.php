@@ -1,16 +1,16 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Facades;
+namespace Armezit\Lunar\PurchaseLimit\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Armezit\GetCandy\PurchaseLimit\GetCandyPurchaseLimit
+ * @see \Armezit\Lunar\PurchaseLimit\LunarPurchaseLimit
  */
 class PurchaseLimit extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Armezit\GetCandy\PurchaseLimit\PurchaseLimitManager::class;
+        return \Armezit\Lunar\PurchaseLimit\PurchaseLimitManager::class;
     }
 }

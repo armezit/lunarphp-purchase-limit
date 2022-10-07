@@ -1,8 +1,8 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Database\Factories;
+namespace Armezit\Lunar\PurchaseLimit\Database\Factories;
 
-use Armezit\GetCandy\PurchaseLimit\Models\PurchaseLimit;
+use Armezit\Lunar\PurchaseLimit\Models\PurchaseLimit;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PurchaseLimitFactory extends Factory

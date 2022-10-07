@@ -1,13 +1,13 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Http\Livewire\Slots;
+namespace Armezit\Lunar\PurchaseLimit\Http\Livewire\Slots;
 
-use Armezit\GetCandy\PurchaseLimit\Models\PurchaseLimit;
-use GetCandy\Hub\Slots\AbstractSlot;
-use GetCandy\Hub\Slots\Traits\HubSlot;
-use GetCandy\Models\CustomerGroup;
-use GetCandy\Models\Product;
-use GetCandy\Models\ProductVariant;
+use Armezit\Lunar\PurchaseLimit\Models\PurchaseLimit;
+use Lunar\Hub\Slots\AbstractSlot;
+use Lunar\Hub\Slots\Traits\HubSlot;
+use Lunar\Models\CustomerGroup;
+use Lunar\Models\Product;
+use Lunar\Models\ProductVariant;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -47,12 +47,12 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 
     public function getSlotTitle()
     {
-        return __('getcandy-purchase-limit::slots.product.title');
+        return __('lunarphp-purchase-limit::slots.product.title');
     }
 
     public function render()
     {
-        return view('getcandy-purchase-limit::livewire.slots.product-purchase-limit');
+        return view('lunarphp-purchase-limit::livewire.slots.product-purchase-limit');
     }
 
     protected function rules()
@@ -130,10 +130,10 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
     public function getPeriodsProperty()
     {
         return [
-            __('getcandy-purchase-limit::global.per_purchase') => '',
-            __('getcandy-purchase-limit::global.daily') => 1,
-            __('getcandy-purchase-limit::global.weekly') => 7,
-            __('getcandy-purchase-limit::global.monthly') => 30,
+            __('lunarphp-purchase-limit::global.per_purchase') => '',
+            __('lunarphp-purchase-limit::global.daily') => 1,
+            __('lunarphp-purchase-limit::global.weekly') => 7,
+            __('lunarphp-purchase-limit::global.monthly') => 30,
         ];
     }
 

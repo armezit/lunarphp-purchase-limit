@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `getcandy-purchase-limit` will be documented in this file.
+All notable changes to `lunarphp-purchase-limit` will be documented in this file.
 
 ## v0.6.0 - 2022-08-16
 
@@ -16,4 +16,4 @@ All notable changes to `getcandy-purchase-limit` will be documented in this file
 
 1. ProductPurchaseLimitSlot
 
-**Full Changelog**: https://github.com/armezit/getcandy-purchase-limit/commits/v0.6.0
+**Full Changelog**: https://github.com/armezit/lunarphp-purchase-limit/commits/v0.6.0

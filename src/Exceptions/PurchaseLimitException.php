@@ -1,8 +1,8 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Exceptions;
+namespace Armezit\Lunar\PurchaseLimit\Exceptions;
 
-use GetCandy\Exceptions\Carts\CartException;
+use Lunar\Exceptions\Carts\CartException;
 
 class PurchaseLimitException extends CartException
 {

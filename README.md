@@ -1,12 +1,12 @@
-# GetCandy Purchase Limit Addon
+# Lunar Purchase Limit Addon
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/armezit/getcandy-purchase-limit.svg?style=flat-square)](https://packagist.org/packages/armezit/getcandy-purchase-limit)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/armezit/getcandy-purchase-limit/run-tests?label=tests)](https://github.com/armezit/getcandy-purchase-limit/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/armezit/getcandy-purchase-limit/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/armezit/getcandy-purchase-limit/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/armezit/getcandy-purchase-limit.svg?style=flat-square)](https://packagist.org/packages/armezit/getcandy-purchase-limit)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/armezit/lunarphp-purchase-limit.svg?style=flat-square)](https://packagist.org/packages/armezit/lunarphp-purchase-limit)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/armezit/lunarphp-purchase-limit/run-tests?label=tests)](https://github.com/armezit/lunarphp-purchase-limit/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/armezit/lunarphp-purchase-limit/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/armezit/lunarphp-purchase-limit/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/armezit/lunarphp-purchase-limit.svg?style=flat-square)](https://packagist.org/packages/armezit/lunarphp-purchase-limit)
 
-The Purchase Limit addon for GetCandy allows you to define complex purchase limitation scenarios in your 
-[GetCandy](https://github.com/getcandy/getcandy) store.
+The Purchase Limit addon for Lunar allows you to define complex purchase limitation scenarios in your 
+[Lunar](https://github.com/lunarphp/lunar) store.
 
 ## Features
 
@@ -26,10 +26,10 @@ both of them.
 
 ## Quick Setup
 
-Install the GetCandy Purchase Limit via composer:
+Install the Lunar Purchase Limit via composer:
 
 ```bash
-composer require armezit/getcandy-purchase-limit
+composer require armezit/lunarphp-purchase-limit
 ``` 
 
 Run the migrations with:
@@ -45,16 +45,16 @@ There is also a detailed [installation guide](#installation), in case you need m
 
 ### Detect Violation of Defined Limitations
 
-The package throws a child type of `GetCandy\Exceptions\Carts\CartException` exception,
+The package throws a child type of `Lunar\Exceptions\Carts\CartException` exception,
 each time a violation of defined limits detected.
 
 Typically, you want to catch these exceptions during create order process:
 
 ```php
-use GetCandy\Facades\CartSession;
-use GetCandy\Exceptions\Carts\CartException;
-use Armezit\GetCandy\PurchaseLimit\Exceptions\PurchaseLimitException;
-use Armezit\GetCandy\PurchaseLimit\Exceptions\CustomerQuantityLimitException;
+use Lunar\Facades\CartSession;
+use Lunar\Exceptions\Carts\CartException;
+use Armezit\Lunar\PurchaseLimit\Exceptions\PurchaseLimitException;
+use Armezit\Lunar\PurchaseLimit\Exceptions\CustomerQuantityLimitException;
 
 try {
     $order = CartSession::current()
@@ -156,7 +156,7 @@ containing all optional parts.
 You can install the package via composer:
 
 ```bash
-composer require armezit/getcandy-purchase-limit
+composer require armezit/lunarphp-purchase-limit
 ```
 
 ### Migrations
@@ -164,7 +164,7 @@ composer require armezit/getcandy-purchase-limit
 Optionally, publish the migrations:
 
 ```bash
-php artisan vendor:publish --tag="getcandy-purchase-limit-migrations"
+php artisan vendor:publish --tag="lunarphp-purchase-limit-migrations"
 ```
 
 Run the migrations with:
@@ -180,7 +180,7 @@ php artisan migrate
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="getcandy-purchase-limit-config"
+php artisan vendor:publish --tag="lunarphp-purchase-limit-config"
 ```
 
 This is the contents of the published config file:
@@ -232,8 +232,8 @@ return [
 Optionally, you can publish the translations and views using
 
 ```bash
-php artisan vendor:publish --tag="getcandy-purchase-limit-translations"
-php artisan vendor:publish --tag="getcandy-purchase-limit-views"
+php artisan vendor:publish --tag="lunarphp-purchase-limit-translations"
+php artisan vendor:publish --tag="lunarphp-purchase-limit-views"
 ```
 
 
@@ -248,14 +248,14 @@ into your laravel application's `config/app.php` file.
 // ...
 'providers' => [
     // ...
-    Armezit\GetCandy\PurchaseLimit\PurchaseLimitServiceProvider::class,
-    Armezit\GetCandy\PurchaseLimit\PurchaseLimitHubServiceProvider::class,
+    Armezit\Lunar\PurchaseLimit\PurchaseLimitServiceProvider::class,
+    Armezit\Lunar\PurchaseLimit\PurchaseLimitHubServiceProvider::class,
 ],
 ```
 
 The `PurchaseLimitServiceProvider` bootstrap primary package features, 
 while the `PurchaseLimitHubServiceProvider` is used to register some 
-[Slots](https://docs.getcandy.io/extending/admin-hub.html#slots) to be used in GetCandy Admin Hub.
+[Slots](https://docs.lunarphp.io/extending/admin-hub.html#slots) to be used in Lunar Admin Hub.
 
 ## Testing
 

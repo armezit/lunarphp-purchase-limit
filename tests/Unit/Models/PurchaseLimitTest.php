@@ -1,13 +1,13 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Tests\Unit\Models;
+namespace Armezit\Lunar\PurchaseLimit\Tests\Unit\Models;
 
-use Armezit\GetCandy\PurchaseLimit\Models\PurchaseLimit;
-use Armezit\GetCandy\PurchaseLimit\Tests\TestCase;
-use GetCandy\Models\Customer;
-use GetCandy\Models\CustomerGroup;
-use GetCandy\Models\Product;
-use GetCandy\Models\ProductVariant;
+use Armezit\Lunar\PurchaseLimit\Models\PurchaseLimit;
+use Armezit\Lunar\PurchaseLimit\Tests\TestCase;
+use Lunar\Models\Customer;
+use Lunar\Models\CustomerGroup;
+use Lunar\Models\Product;
+use Lunar\Models\ProductVariant;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 

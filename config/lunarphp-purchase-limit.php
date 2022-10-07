@@ -1,10 +1,10 @@
 <?php
 
-use Armezit\GetCandy\PurchaseLimit\Rules\CustomerLimit;
-use Armezit\GetCandy\PurchaseLimit\Rules\CustomerProductLimit;
-use Armezit\GetCandy\PurchaseLimit\Rules\CustomerProductVariantLimit;
-use Armezit\GetCandy\PurchaseLimit\Rules\ProductLimit;
-use Armezit\GetCandy\PurchaseLimit\Rules\ProductVariantLimit;
+use Armezit\Lunar\PurchaseLimit\Rules\CustomerLimit;
+use Armezit\Lunar\PurchaseLimit\Rules\CustomerProductLimit;
+use Armezit\Lunar\PurchaseLimit\Rules\CustomerProductVariantLimit;
+use Armezit\Lunar\PurchaseLimit\Rules\ProductLimit;
+use Armezit\Lunar\PurchaseLimit\Rules\ProductVariantLimit;
 
 return [
 

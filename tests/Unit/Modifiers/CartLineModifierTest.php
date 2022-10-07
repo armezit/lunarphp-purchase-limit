@@ -1,19 +1,19 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Tests\Unit\Modifiers;
+namespace Armezit\Lunar\PurchaseLimit\Tests\Unit\Modifiers;
 
-use Armezit\GetCandy\PurchaseLimit\Models\PurchaseLimit;
-use Armezit\GetCandy\PurchaseLimit\Modifiers\CartLineModifier;
-use Armezit\GetCandy\PurchaseLimit\Rules\CartLineRuleInterface;
-use Armezit\GetCandy\PurchaseLimit\Rules\CustomerProductVariantLimit;
-use Armezit\GetCandy\PurchaseLimit\Rules\ProductVariantLimit;
-use Armezit\GetCandy\PurchaseLimit\Tests\TestCase;
-use GetCandy\Models\Cart;
-use GetCandy\Models\Currency;
-use GetCandy\Models\Customer;
-use GetCandy\Models\CustomerGroup;
-use GetCandy\Models\ProductVariant;
-use GetCandy\Tests\Stubs\User;
+use Armezit\Lunar\PurchaseLimit\Models\PurchaseLimit;
+use Armezit\Lunar\PurchaseLimit\Modifiers\CartLineModifier;
+use Armezit\Lunar\PurchaseLimit\Rules\CartLineRuleInterface;
+use Armezit\Lunar\PurchaseLimit\Rules\CustomerProductVariantLimit;
+use Armezit\Lunar\PurchaseLimit\Rules\ProductVariantLimit;
+use Armezit\Lunar\PurchaseLimit\Tests\TestCase;
+use Lunar\Models\Cart;
+use Lunar\Models\Currency;
+use Lunar\Models\Customer;
+use Lunar\Models\CustomerGroup;
+use Lunar\Models\ProductVariant;
+use Lunar\Tests\Stubs\User;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

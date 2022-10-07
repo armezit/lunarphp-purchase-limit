@@ -1,10 +1,10 @@
 <?php
 
-namespace Armezit\GetCandy\PurchaseLimit\Rules;
+namespace Armezit\Lunar\PurchaseLimit\Rules;
 
-use Armezit\GetCandy\PurchaseLimit\Exceptions\CustomerQuantityLimitException;
-use Armezit\GetCandy\PurchaseLimit\Exceptions\CustomerTotalLimitException;
-use GetCandy\Models\Cart;
+use Armezit\Lunar\PurchaseLimit\Exceptions\CustomerQuantityLimitException;
+use Armezit\Lunar\PurchaseLimit\Exceptions\CustomerTotalLimitException;
+use Lunar\Models\Cart;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 

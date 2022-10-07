@@ -11,7 +11,7 @@ assignees: ''
 <!-- Fill out the FULL versions with patch versions -->
 
 - Package version: #.#.#
-- GetCandy version: #.#.#
+- Lunar version: #.#.#
 - Laravel Version: #.#.#
 - PHP Version: #.#.#
 - Database Driver & Version:
