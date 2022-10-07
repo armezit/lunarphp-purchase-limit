@@ -7,14 +7,14 @@ use Armezit\Lunar\PurchaseLimit\Exceptions\ProductTotalLimitException;
 use Armezit\Lunar\PurchaseLimit\Models\PurchaseLimit;
 use Armezit\Lunar\PurchaseLimit\Rules\ProductLimit;
 use Armezit\Lunar\PurchaseLimit\Tests\TestCase;
+use Illuminate\Database\Eloquent\Factories\Sequence;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Lunar\Models\Cart;
 use Lunar\Models\Currency;
 use Lunar\Models\Price;
 use Lunar\Models\Product;
 use Lunar\Models\ProductVariant;
-use Illuminate\Database\Eloquent\Factories\Sequence;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 
 class ProductLimitTest extends TestCase
 {

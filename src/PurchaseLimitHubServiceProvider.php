@@ -4,9 +4,9 @@ namespace Armezit\Lunar\PurchaseLimit;
 
 use Armezit\Lunar\PurchaseLimit\Http\Livewire\Slots\CustomerPurchaseLimitSlot;
 use Armezit\Lunar\PurchaseLimit\Http\Livewire\Slots\ProductPurchaseLimitSlot;
-use Lunar\Hub\Facades\Slot;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Lunar\Hub\Facades\Slot;
 
 class PurchaseLimitHubServiceProvider extends ServiceProvider
 {

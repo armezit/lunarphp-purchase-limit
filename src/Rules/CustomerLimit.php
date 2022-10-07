@@ -4,9 +4,9 @@ namespace Armezit\Lunar\PurchaseLimit\Rules;
 
 use Armezit\Lunar\PurchaseLimit\Exceptions\CustomerQuantityLimitException;
 use Armezit\Lunar\PurchaseLimit\Exceptions\CustomerTotalLimitException;
-use Lunar\Models\Cart;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Lunar\Models\Cart;
 
 /**
  * check general purchase limit for a customer
@@ -81,7 +81,6 @@ class CustomerLimit implements CartRuleInterface
         $limits = $this->filter($purchaseLimits, $cart);
 
         foreach ($limits as $limit) {
-
             // calculate total quantity of cart
             $quantity = $cart->lines->sum('quantity');
 

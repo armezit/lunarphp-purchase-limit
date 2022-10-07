@@ -4,9 +4,9 @@ namespace Armezit\Lunar\PurchaseLimit\Rules;
 
 use Armezit\Lunar\PurchaseLimit\Exceptions\ProductQuantityLimitException;
 use Armezit\Lunar\PurchaseLimit\Exceptions\ProductTotalLimitException;
-use Lunar\Models\Cart;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Lunar\Models\Cart;
 
 interface CartRuleInterface
 {

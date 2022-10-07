@@ -5,12 +5,12 @@ namespace Armezit\Lunar\PurchaseLimit\Tests;
 use Armezit\Lunar\PurchaseLimit\PurchaseLimitServiceProvider;
 use Armezit\Lunar\PurchaseLimit\Tests\Concerns\FixesSqliteDropForeign;
 use Cartalyst\Converter\Laravel\ConverterServiceProvider;
-use Lunar\LunarServiceProvider;
-use Lunar\Models\Language;
-use Lunar\Tests\Stubs\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Config;
 use Kalnoy\Nestedset\NestedSetServiceProvider;
+use Lunar\LunarServiceProvider;
+use Lunar\Models\Language;
+use Lunar\Tests\Stubs\User;
 use Spatie\Activitylog\ActivitylogServiceProvider;
 use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 
