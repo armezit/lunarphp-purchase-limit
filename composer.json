@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "lunarphp/stripe": "^0.1",
+        "lunarphp/lunar": "^0.1",
         "illuminate/contracts": "^9.0",
         "livewire/livewire": "^2.0",
         "spatie/laravel-package-tools": "^1.9.2"
