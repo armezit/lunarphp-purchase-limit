@@ -14,6 +14,9 @@ use Lunar\Models\CustomerGroup;
 use Lunar\Models\Product;
 use Lunar\Models\ProductVariant;
 
+/**
+ * @property \Lunar\Base\BaseModel|string $slotModel;
+ */
 class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 {
     use HubSlot;
