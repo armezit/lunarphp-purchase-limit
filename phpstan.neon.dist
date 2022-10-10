@@ -11,4 +11,12 @@ parameters:
     checkOctaneCompatibility: true
     checkModelProperties: true
     checkMissingIterableValueType: false
+    excludePaths:
+        # phpstan complains about non-existent Livewire class, but we don't want to add it to our dependencies
+        - src/PurchaseLimitHubServiceProvider.php
+    ignoreErrors:
+        # lunar models does not have suitable type-hints
+        - '#Access to an undefined property Lunar\\Models\\\w+::\$.+\.#'
+        - '#Access to an undefined property Illuminate\\Database\\Eloquent\\Model::\$customers\.#'
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Model::customers\(\)\.#'
 

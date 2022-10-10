@@ -106,8 +106,8 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
     private function mapCustomerGroupLimits()
     {
         return PurchaseLimit::where([
-            'product_id' => $this->slotModel instanceof Product ? $this->slotModel->id : 0,
-            'product_variant_id' => $this->slotModel instanceof ProductVariant ? $this->slotModel->id : 0,
+            'product_id' => ($this->slotModel instanceof Product) ? $this->slotModel->id : 0,
+            'product_variant_id' => ($this->slotModel instanceof ProductVariant) ? $this->slotModel->id : 0,
             'customer_id' => 0,
         ])
             ->get()

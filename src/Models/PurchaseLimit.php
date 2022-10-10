@@ -11,6 +11,16 @@ use Lunar\Models\CustomerGroup;
 use Lunar\Models\Product;
 use Lunar\Models\ProductVariant;
 
+/**
+ * @property int $id
+ * @property int $product_id
+ * @property int $product_variant_id
+ * @property int $customer_group_id
+ * @property int $customer_id
+ * @property int $period
+ * @property int $max_quantity
+ * @property int $max_total
+ */
 class PurchaseLimit extends Model
 {
     use HasFactory;

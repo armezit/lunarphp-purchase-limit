@@ -9,11 +9,6 @@ class PurchaseLimitFactory extends Factory
 {
     protected $model = PurchaseLimit::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition()
     {
         return [
