@@ -44,7 +44,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Lunar\\Tests\\": "./vendor/lunar/core/tests",
+            "Lunar\\Tests\\": "./vendor/lunarphp/lunar/packages/core/tests",
             "Armezit\\Lunar\\PurchaseLimit\\Tests\\": "tests"
         }
     },
