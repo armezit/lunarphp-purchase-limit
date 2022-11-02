@@ -28,7 +28,7 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 
     public static function getName()
     {
-        return 'hub.product.slots.product-purchase-limit-slot';
+        return 'hub.lunar-purchase-limit.slots.product-purchase-limit-slot';
     }
 
     public function getSlotHandle()
