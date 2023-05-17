@@ -150,8 +150,6 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 
     /**
      * Method to remove a customer group limit from the stack.
-     *
-     * @param  int  $index
      */
     public function removeCustomerGroupLimit(int $index)
     {
@@ -191,9 +189,6 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 
     /**
      * save customer purchase limits
-     *
-     * @param  Model  $model
-     * @param  array  $data
      */
     public function saveCustomerGroupPurchaseLimits(Model $model, array $data)
     {
@@ -226,8 +221,8 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
             );
 
             PurchaseLimit::withoutTrashed()
-                         ->whereNotIn('id', $limitsToKeep)
-                         ->forceDelete();
+                ->whereNotIn('id', $limitsToKeep)
+                ->forceDelete();
         });
     }
 }

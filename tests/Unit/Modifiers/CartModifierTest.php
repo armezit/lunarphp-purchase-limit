@@ -63,26 +63,26 @@ class CartModifierTest extends TestCase
         ]);
 
         PurchaseLimit::factory()
-                     ->count(5)
-                     ->state(new Sequence(
-                         [
-                             'product_id' => $product->id,
-                             'customer_id' => $customer->id,
-                         ],
-                         [
-                             'product_id' => $product->id,
-                         ],
-                         [
-                             'customer_id' => $customer->id,
-                         ],
-                         [
-                             'customer_group_id' => $customerGroups[0]->id,
-                         ],
-                         [
-                             'customer_group_id' => $customerGroups[1]->id,
-                         ],
-                     ))
-                     ->create();
+            ->count(5)
+            ->state(new Sequence(
+                [
+                    'product_id' => $product->id,
+                    'customer_id' => $customer->id,
+                ],
+                [
+                    'product_id' => $product->id,
+                ],
+                [
+                    'customer_id' => $customer->id,
+                ],
+                [
+                    'customer_group_id' => $customerGroups[0]->id,
+                ],
+                [
+                    'customer_group_id' => $customerGroups[1]->id,
+                ],
+            ))
+            ->create();
 
         $cartModifier = new CartModifier;
         $rules = $cartModifier->getRules([

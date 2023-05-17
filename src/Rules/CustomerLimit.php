@@ -46,7 +46,7 @@ class CustomerLimit implements CartRuleInterface
             ])
             ->where(function (Builder $q) use ($cart) {
                 $q->whereIn('customer_id', $this->getCustomerIds($cart))
-                  ->orWhereIn('customer_group_id', $this->getCustomerGroupIds($cart));
+                    ->orWhereIn('customer_group_id', $this->getCustomerGroupIds($cart));
             });
     }
 

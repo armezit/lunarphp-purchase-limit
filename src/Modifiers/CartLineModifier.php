@@ -34,7 +34,6 @@ class CartLineModifier extends BaseCartLineModifier
     }
 
     /**
-     * @param  array  $classes
      * @return CartLineRuleInterface[]
      */
     public function getRules(array $classes): array
@@ -46,8 +45,6 @@ class CartLineModifier extends BaseCartLineModifier
      * get purchase limit collection of all rules in a single query
      *
      * @param  CartLineRuleInterface[]  $rules
-     * @param  CartLine  $cartLine
-     * @return Collection
      */
     public function getPurchaseLimits(array $rules, CartLine $cartLine): Collection
     {

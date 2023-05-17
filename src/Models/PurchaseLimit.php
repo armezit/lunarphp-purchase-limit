@@ -55,8 +55,6 @@ class PurchaseLimit extends Model
 
     /**
      * Return a new factory instance for the model.
-     *
-     * @return PurchaseLimitFactory
      */
     protected static function newFactory(): PurchaseLimitFactory
     {

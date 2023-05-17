@@ -65,14 +65,14 @@ class CustomerLimitTest extends TestCase
         ]);
 
         PurchaseLimit::factory()
-                     ->count(4)
-                     ->state(new Sequence(
-                         ['product_variant_id' => $productVariants[0]->id],
-                         ['product_id' => $productVariants[0]->product_id],
-                         ['customer_id' => $this->customer->id],
-                         ['customer_group_id' => $customerGroups[0]->id],
-                     ))
-                     ->create();
+            ->count(4)
+            ->state(new Sequence(
+                ['product_variant_id' => $productVariants[0]->id],
+                ['product_id' => $productVariants[0]->product_id],
+                ['customer_id' => $this->customer->id],
+                ['customer_group_id' => $customerGroups[0]->id],
+            ))
+            ->create();
 
         $query = PurchaseLimit::withoutTrashed()->where(function ($q) use ($cart) {
             (new CustomerLimit)->query($q, $cart);
@@ -111,14 +111,14 @@ class CustomerLimitTest extends TestCase
         ]);
 
         PurchaseLimit::factory()
-                     ->count(4)
-                     ->state(new Sequence(
-                         ['product_variant_id' => $productVariants[0]->id],
-                         ['product_id' => $productVariants[0]->product_id],
-                         ['customer_id' => $this->customer->id],
-                         ['customer_group_id' => $customerGroups[0]->id],
-                     ))
-                     ->create();
+            ->count(4)
+            ->state(new Sequence(
+                ['product_variant_id' => $productVariants[0]->id],
+                ['product_id' => $productVariants[0]->product_id],
+                ['customer_id' => $this->customer->id],
+                ['customer_group_id' => $customerGroups[0]->id],
+            ))
+            ->create();
 
         $limits = PurchaseLimit::withoutTrashed()->get();
         $limits = (new CustomerLimit)->filter($limits, $cart);

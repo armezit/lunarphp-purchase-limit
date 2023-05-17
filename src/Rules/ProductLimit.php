@@ -17,12 +17,12 @@ class ProductLimit implements CartRuleInterface
     private function getProductIds(Cart $cart): Collection
     {
         return $cart->lines()
-                    ->with('purchasable')
-                    ->get()
-                    ->pluck('purchasable')
-                    ->flatten()
-                    ->pluck('product_id')
-                    ->unique();
+            ->with('purchasable')
+            ->get()
+            ->pluck('purchasable')
+            ->flatten()
+            ->pluck('product_id')
+            ->unique();
     }
 
     /**

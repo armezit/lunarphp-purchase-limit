@@ -17,12 +17,12 @@ class CustomerProductLimit implements CartRuleInterface
     private function getProductIds(Cart $cart): Collection
     {
         return $cart->lines()
-                    ->with('purchasable')
-                    ->get()
-                    ->pluck('purchasable')
-                    ->flatten()
-                    ->pluck('product_id')
-                    ->unique();
+            ->with('purchasable')
+            ->get()
+            ->pluck('purchasable')
+            ->flatten()
+            ->pluck('product_id')
+            ->unique();
     }
 
     private function getCustomerIds(Cart $cart): Collection
@@ -56,7 +56,7 @@ class CustomerProductLimit implements CartRuleInterface
             ->whereIn('product_id', $this->getProductIds($cart))
             ->where(function (Builder $q) use ($cart) {
                 $q->whereIn('customer_id', $this->getCustomerIds($cart))
-                  ->orWhereIn('customer_group_id', $this->getCustomerGroupIds($cart));
+                    ->orWhereIn('customer_group_id', $this->getCustomerGroupIds($cart));
             });
     }
 

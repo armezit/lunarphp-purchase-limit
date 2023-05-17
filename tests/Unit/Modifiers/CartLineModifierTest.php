@@ -58,34 +58,34 @@ class CartLineModifierTest extends TestCase
         ]);
 
         PurchaseLimit::factory()
-                     ->count(7)
-                     ->state(new Sequence(
-                         [
-                             'product_variant_id' => $productVariant->id,
-                             'customer_id' => $customer->id,
-                         ],
-                         [
-                             'product_variant_id' => $productVariant->id,
-                         ],
-                         [
-                             'product_variant_id' => $productVariant->id,
-                             'customer_group_id' => $customerGroups[0]->id,
-                         ],
-                         [
-                             'product_variant_id' => $productVariant->id,
-                             'customer_group_id' => $customerGroups[1]->id,
-                         ],
-                         [
-                             'customer_id' => $customer->id,
-                         ],
-                         [
-                             'customer_group_id' => $customerGroups[0]->id,
-                         ],
-                         [
-                             'customer_group_id' => $customerGroups[1]->id,
-                         ],
-                     ))
-                     ->create();
+            ->count(7)
+            ->state(new Sequence(
+                [
+                    'product_variant_id' => $productVariant->id,
+                    'customer_id' => $customer->id,
+                ],
+                [
+                    'product_variant_id' => $productVariant->id,
+                ],
+                [
+                    'product_variant_id' => $productVariant->id,
+                    'customer_group_id' => $customerGroups[0]->id,
+                ],
+                [
+                    'product_variant_id' => $productVariant->id,
+                    'customer_group_id' => $customerGroups[1]->id,
+                ],
+                [
+                    'customer_id' => $customer->id,
+                ],
+                [
+                    'customer_group_id' => $customerGroups[0]->id,
+                ],
+                [
+                    'customer_group_id' => $customerGroups[1]->id,
+                ],
+            ))
+            ->create();
 
         $cartLineModifier = new CartLineModifier;
         $rules = $cartLineModifier->getRules([

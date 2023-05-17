@@ -53,14 +53,14 @@ class ProductLimitTest extends TestCase
         ]);
 
         PurchaseLimit::factory()
-                     ->count(4)
-                     ->state(new Sequence(
-                         ['product_id' => $products[0]->id],
-                         ['product_id' => $products[1]->id],
-                         ['product_variant_id' => $productVariants[0]->id],
-                         ['customer_id' => $this->faker->numberBetween(1, 5)],
-                     ))
-                     ->create();
+            ->count(4)
+            ->state(new Sequence(
+                ['product_id' => $products[0]->id],
+                ['product_id' => $products[1]->id],
+                ['product_variant_id' => $productVariants[0]->id],
+                ['customer_id' => $this->faker->numberBetween(1, 5)],
+            ))
+            ->create();
 
         $query = PurchaseLimit::withoutTrashed()->where(function ($q) use ($cart) {
             (new ProductLimit)->query($q, $cart);
@@ -101,14 +101,14 @@ class ProductLimitTest extends TestCase
         ]);
 
         PurchaseLimit::factory()
-                     ->count(4)
-                     ->state(new Sequence(
-                         ['product_id' => $products[0]->id],
-                         ['product_id' => $products[1]->id],
-                         ['product_variant_id' => $productVariants[0]->id],
-                         ['customer_id' => $this->faker->numberBetween(1, 5)],
-                     ))
-                     ->create();
+            ->count(4)
+            ->state(new Sequence(
+                ['product_id' => $products[0]->id],
+                ['product_id' => $products[1]->id],
+                ['product_variant_id' => $productVariants[0]->id],
+                ['customer_id' => $this->faker->numberBetween(1, 5)],
+            ))
+            ->create();
 
         $limits = PurchaseLimit::withoutTrashed()->get();
         $limits = (new ProductLimit)->filter($limits, $cart);

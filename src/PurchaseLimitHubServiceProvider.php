@@ -30,7 +30,7 @@ class PurchaseLimitHubServiceProvider extends ServiceProvider
      */
     protected function registerLivewireComponents()
     {
-//        Livewire::component('hub.lunar-purchase-limit.slots.customer-purchase-limit-slot', CustomerPurchaseLimitSlot::class);
+        //        Livewire::component('hub.lunar-purchase-limit.slots.customer-purchase-limit-slot', CustomerPurchaseLimitSlot::class);
         Livewire::component('hub.lunar-purchase-limit.slots.product-purchase-limit-slot', ProductPurchaseLimitSlot::class);
     }
 
