@@ -1,8 +1,8 @@
 # Lunar Purchase Limit Addon
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/armezit/lunarphp-purchase-limit.svg?style=flat-square)](https://packagist.org/packages/armezit/lunarphp-purchase-limit)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/armezit/lunarphp-purchase-limit/run-tests?label=tests)](https://github.com/armezit/lunarphp-purchase-limit/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/armezit/lunarphp-purchase-limit/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/armezit/lunarphp-purchase-limit/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/armezit/lunarphp-purchase-limit/run-tests.yml?branch=main&label=tests)](https://github.com/armezit/lunarphp-purchase-limit/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/armezit/lunarphp-purchase-limit/fix-php-code-style-issues.yml?branch=main&label=code%20style)](https://github.com/armezit/lunarphp-purchase-limit/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/armezit/lunarphp-purchase-limit.svg?style=flat-square)](https://packagist.org/packages/armezit/lunarphp-purchase-limit)
 
 The Purchase Limit addon for Lunar allows you to define complex purchase limitation scenarios in your 
