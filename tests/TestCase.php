@@ -5,12 +5,12 @@ namespace Armezit\Lunar\PurchaseLimit\Tests;
 use Armezit\Lunar\PurchaseLimit\PurchaseLimitServiceProvider;
 use Armezit\Lunar\PurchaseLimit\Tests\Concerns\FixesSqliteDropForeign;
 use Cartalyst\Converter\Laravel\ConverterServiceProvider;
-use Lunar\LunarServiceProvider;
-use Lunar\Models\Language;
-use Lunar\Tests\Stubs\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Config;
 use Kalnoy\Nestedset\NestedSetServiceProvider;
+use Lunar\LunarServiceProvider;
+use Lunar\Models\Language;
+use Lunar\Tests\Stubs\User;
 use Spatie\Activitylog\ActivitylogServiceProvider;
 use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 
@@ -18,7 +18,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
 {
     use FixesSqliteDropForeign;
 
-    public function __construct(?string $name = null, array $data = [], string $dataName = '')
+    public function __construct(string $name = null, array $data = [], string $dataName = '')
     {
         $this->hotfixSqlite();
         parent::__construct($name, $data, $dataName);

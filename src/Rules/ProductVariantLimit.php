@@ -4,9 +4,9 @@ namespace Armezit\Lunar\PurchaseLimit\Rules;
 
 use Armezit\Lunar\PurchaseLimit\Exceptions\ProductVariantQuantityLimitException;
 use Armezit\Lunar\PurchaseLimit\Exceptions\ProductVariantTotalLimitException;
-use Lunar\Models\CartLine;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Lunar\Models\CartLine;
 
 /**
  * check general purchase limit on a specific product variant

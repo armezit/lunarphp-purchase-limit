@@ -3,16 +3,16 @@
 namespace Armezit\Lunar\PurchaseLimit\Http\Livewire\Slots;
 
 use Armezit\Lunar\PurchaseLimit\Models\PurchaseLimit;
-use Lunar\Hub\Slots\AbstractSlot;
-use Lunar\Hub\Slots\Traits\HubSlot;
-use Lunar\Models\CustomerGroup;
-use Lunar\Models\Product;
-use Lunar\Models\ProductVariant;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
+use Lunar\Hub\Slots\AbstractSlot;
+use Lunar\Hub\Slots\Traits\HubSlot;
+use Lunar\Models\CustomerGroup;
+use Lunar\Models\Product;
+use Lunar\Models\ProductVariant;
 
 class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 {
@@ -147,8 +147,6 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 
     /**
      * Method to remove a customer group limit from the stack.
-     *
-     * @param  int  $index
      */
     public function removeCustomerGroupLimit(int $index)
     {
@@ -188,9 +186,6 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
 
     /**
      * save customer purchase limits
-     *
-     * @param  Model  $model
-     * @param  array  $data
      */
     public function saveCustomerGroupPurchaseLimits(Model $model, array $data)
     {
@@ -223,8 +218,8 @@ class ProductPurchaseLimitSlot extends Component implements AbstractSlot
             );
 
             PurchaseLimit::withoutTrashed()
-                         ->whereNotIn('id', $limitsToKeep)
-                         ->forceDelete();
+                ->whereNotIn('id', $limitsToKeep)
+                ->forceDelete();
         });
     }
 }

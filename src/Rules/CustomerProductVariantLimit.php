@@ -4,9 +4,9 @@ namespace Armezit\Lunar\PurchaseLimit\Rules;
 
 use Armezit\Lunar\PurchaseLimit\Exceptions\ProductVariantQuantityLimitException;
 use Armezit\Lunar\PurchaseLimit\Exceptions\ProductVariantTotalLimitException;
-use Lunar\Models\CartLine;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Lunar\Models\CartLine;
 
 /**
  * check customer purchase limit on a specific product variant
@@ -47,7 +47,7 @@ class CustomerProductVariantLimit implements CartLineRuleInterface
             ])
             ->where(function (Builder $q) use ($cartLine) {
                 $q->whereIn('customer_id', $this->getCustomerIds($cartLine))
-                  ->orWhereIn('customer_group_id', $this->getCustomerGroupIds($cartLine));
+                    ->orWhereIn('customer_group_id', $this->getCustomerGroupIds($cartLine));
             });
     }
 

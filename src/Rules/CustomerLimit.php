@@ -4,9 +4,9 @@ namespace Armezit\Lunar\PurchaseLimit\Rules;
 
 use Armezit\Lunar\PurchaseLimit\Exceptions\CustomerQuantityLimitException;
 use Armezit\Lunar\PurchaseLimit\Exceptions\CustomerTotalLimitException;
-use Lunar\Models\Cart;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Lunar\Models\Cart;
 
 /**
  * check general purchase limit for a customer
@@ -46,7 +46,7 @@ class CustomerLimit implements CartRuleInterface
             ])
             ->where(function (Builder $q) use ($cart) {
                 $q->whereIn('customer_id', $this->getCustomerIds($cart))
-                  ->orWhereIn('customer_group_id', $this->getCustomerGroupIds($cart));
+                    ->orWhereIn('customer_group_id', $this->getCustomerGroupIds($cart));
             });
     }
 

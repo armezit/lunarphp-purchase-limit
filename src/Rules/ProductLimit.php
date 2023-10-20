@@ -4,10 +4,10 @@ namespace Armezit\Lunar\PurchaseLimit\Rules;
 
 use Armezit\Lunar\PurchaseLimit\Exceptions\ProductQuantityLimitException;
 use Armezit\Lunar\PurchaseLimit\Exceptions\ProductTotalLimitException;
-use Lunar\Models\Cart;
-use Lunar\Models\CartLine;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Lunar\Models\Cart;
+use Lunar\Models\CartLine;
 
 /**
  * check general purchase limit on a specific product
@@ -17,12 +17,12 @@ class ProductLimit implements CartRuleInterface
     private function getProductIds(Cart $cart): Collection
     {
         return $cart->lines()
-                    ->with('purchasable')
-                    ->get()
-                    ->pluck('purchasable')
-                    ->flatten()
-                    ->pluck('product_id')
-                    ->unique();
+            ->with('purchasable')
+            ->get()
+            ->pluck('purchasable')
+            ->flatten()
+            ->pluck('product_id')
+            ->unique();
     }
 
     /**

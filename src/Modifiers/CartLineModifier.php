@@ -7,10 +7,10 @@ use Armezit\Lunar\PurchaseLimit\Exceptions\ProductVariantTotalLimitException;
 use Armezit\Lunar\PurchaseLimit\Models\PurchaseLimit;
 use Armezit\Lunar\PurchaseLimit\Rules\CartLineRuleInterface;
 use Closure;
-use Lunar\Base\CartLineModifier as BaseCartLineModifier;
-use Lunar\Models\CartLine;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Lunar\Base\CartLineModifier as BaseCartLineModifier;
+use Lunar\Models\CartLine;
 
 class CartLineModifier extends BaseCartLineModifier
 {
@@ -34,7 +34,6 @@ class CartLineModifier extends BaseCartLineModifier
     }
 
     /**
-     * @param  array  $classes
      * @return CartLineRuleInterface[]
      */
     public function getRules(array $classes): array
@@ -46,8 +45,6 @@ class CartLineModifier extends BaseCartLineModifier
      * get purchase limit collection of all rules in a single query
      *
      * @param  CartLineRuleInterface[]  $rules
-     * @param  CartLine  $cartLine
-     * @return Collection
      */
     public function getPurchaseLimits(array $rules, CartLine $cartLine): Collection
     {

@@ -4,12 +4,12 @@ namespace Armezit\Lunar\PurchaseLimit\Tests\Unit\Models;
 
 use Armezit\Lunar\PurchaseLimit\Models\PurchaseLimit;
 use Armezit\Lunar\PurchaseLimit\Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Lunar\Models\Customer;
 use Lunar\Models\CustomerGroup;
 use Lunar\Models\Product;
 use Lunar\Models\ProductVariant;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 
 class PurchaseLimitTest extends TestCase
 {

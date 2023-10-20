@@ -7,6 +7,9 @@ use Armezit\Lunar\PurchaseLimit\Exceptions\ProductTotalLimitException;
 use Armezit\Lunar\PurchaseLimit\Models\PurchaseLimit;
 use Armezit\Lunar\PurchaseLimit\Rules\CustomerProductLimit;
 use Armezit\Lunar\PurchaseLimit\Tests\TestCase;
+use Illuminate\Database\Eloquent\Factories\Sequence;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Lunar\Models\Cart;
 use Lunar\Models\Currency;
 use Lunar\Models\Customer;
@@ -15,9 +18,6 @@ use Lunar\Models\Price;
 use Lunar\Models\Product;
 use Lunar\Models\ProductVariant;
 use Lunar\Tests\Stubs\User;
-use Illuminate\Database\Eloquent\Factories\Sequence;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 
 class CustomerProductLimitTest extends TestCase
 {
@@ -70,26 +70,26 @@ class CustomerProductLimitTest extends TestCase
         ]);
 
         PurchaseLimit::factory()
-                     ->count(6)
-                     ->state(new Sequence(
-                         ['product_id' => $products[0]->id],
-                         ['product_id' => $products[1]->id],
-                         ['product_variant_id' => $productVariants[0]->id],
-                         ['customer_id' => $this->customer->id],
-                         [
-                             'product_id' => $products[0]->id,
-                             'customer_id' => $this->customer->id,
-                         ],
-                         [
-                             'product_id' => $products[1]->id,
-                             'customer_id' => $this->customer->id,
-                         ],
-                         [
-                             'product_id' => $products[2]->id,
-                             'customer_group_id' => $customerGroups[0]->id,
-                         ],
-                     ))
-                     ->create();
+            ->count(6)
+            ->state(new Sequence(
+                ['product_id' => $products[0]->id],
+                ['product_id' => $products[1]->id],
+                ['product_variant_id' => $productVariants[0]->id],
+                ['customer_id' => $this->customer->id],
+                [
+                    'product_id' => $products[0]->id,
+                    'customer_id' => $this->customer->id,
+                ],
+                [
+                    'product_id' => $products[1]->id,
+                    'customer_id' => $this->customer->id,
+                ],
+                [
+                    'product_id' => $products[2]->id,
+                    'customer_group_id' => $customerGroups[0]->id,
+                ],
+            ))
+            ->create();
 
         $query = PurchaseLimit::withoutTrashed()->where(function ($q) use ($cart) {
             (new CustomerProductLimit)->query($q, $cart);
@@ -131,26 +131,26 @@ class CustomerProductLimitTest extends TestCase
         ]);
 
         PurchaseLimit::factory()
-                     ->count(6)
-                     ->state(new Sequence(
-                         ['product_id' => $products[0]->id],
-                         ['product_id' => $products[1]->id],
-                         ['product_variant_id' => $productVariants[0]->id],
-                         ['customer_id' => $this->customer->id],
-                         [
-                             'product_id' => $products[0]->id,
-                             'customer_id' => $this->customer->id,
-                         ],
-                         [
-                             'product_id' => $products[1]->id,
-                             'customer_id' => $this->customer->id,
-                         ],
-                         [
-                             'product_id' => $products[2]->id,
-                             'customer_group_id' => $customerGroups[0]->id,
-                         ],
-                     ))
-                     ->create();
+            ->count(6)
+            ->state(new Sequence(
+                ['product_id' => $products[0]->id],
+                ['product_id' => $products[1]->id],
+                ['product_variant_id' => $productVariants[0]->id],
+                ['customer_id' => $this->customer->id],
+                [
+                    'product_id' => $products[0]->id,
+                    'customer_id' => $this->customer->id,
+                ],
+                [
+                    'product_id' => $products[1]->id,
+                    'customer_id' => $this->customer->id,
+                ],
+                [
+                    'product_id' => $products[2]->id,
+                    'customer_group_id' => $customerGroups[0]->id,
+                ],
+            ))
+            ->create();
 
         $limits = PurchaseLimit::withoutTrashed()->get();
         $limits = (new CustomerProductLimit)->filter($limits, $cart);

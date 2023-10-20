@@ -3,13 +3,13 @@
 namespace Armezit\Lunar\PurchaseLimit\Models;
 
 use Armezit\Lunar\PurchaseLimit\Database\Factories\PurchaseLimitFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Lunar\Models\Customer;
 use Lunar\Models\CustomerGroup;
 use Lunar\Models\Product;
 use Lunar\Models\ProductVariant;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PurchaseLimit extends Model
 {
@@ -45,8 +45,6 @@ class PurchaseLimit extends Model
 
     /**
      * Return a new factory instance for the model.
-     *
-     * @return PurchaseLimitFactory
      */
     protected static function newFactory(): PurchaseLimitFactory
     {
