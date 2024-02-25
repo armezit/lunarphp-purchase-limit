@@ -19,7 +19,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
 {
     use FixesSqliteDropForeign;
 
-    public function __construct(string $name = null, array $data = [], string $dataName = '')
+    public function __construct(?string $name = null, array $data = [], string $dataName = '')
     {
         $this->hotfixSqlite();
         parent::__construct($name, $data, $dataName);

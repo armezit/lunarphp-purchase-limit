@@ -22,7 +22,7 @@ trait FixesSqliteDropForeign
 
                     return new class($this) extends \Illuminate\Database\Schema\SQLiteBuilder
                     {
-                        protected function createBlueprint($table, \Closure $callback = null)
+                        protected function createBlueprint($table, ?\Closure $callback = null)
                         {
                             return new class($table, $callback) extends \Illuminate\Database\Schema\Blueprint
                             {
